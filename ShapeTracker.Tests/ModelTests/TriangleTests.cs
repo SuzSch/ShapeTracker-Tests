@@ -9,7 +9,7 @@ namespace ShapeTracker.Tests
         [TestMethod]
         public void TriangleConstructor_CreatesInstanceOfTriangle_Triangle()
         {
-            Triangle newTriangle = new Triangle(2, 4);
+            Triangle newTriangle = new Triangle(2, 4, 7);
             Assert.AreEqual(typeof(Triangle), newTriangle.GetType());
         }
 
@@ -19,7 +19,8 @@ namespace ShapeTracker.Tests
             //Arrange
             int length1 = 3;
             int length2 = 5;
-            Triangle newTriangle = new Triangle(length1, length2);
+            int length3 = 7;
+            Triangle newTriangle = new Triangle(length1, length2, length3);
             //Act
             int result = newTriangle.Side1;
             //Assert
@@ -29,7 +30,7 @@ namespace ShapeTracker.Tests
         [TestMethod]
         public void SetSide1_SetsValueOfSide1_Void()
         {
-            Triangle newTriangle = new Triangle(3, 5);
+            Triangle newTriangle = new Triangle(3, 5, 7);
             int newLength1 = 44;
             newTriangle.Side1 = newLength1;
             Assert.AreEqual(newLength1, newTriangle.Side1);
@@ -39,7 +40,7 @@ namespace ShapeTracker.Tests
         public void GetSide2_ReturnSide2_Int()
         {
             int length2 = 4;
-            Triangle newTriangle = new Triangle(2, length2);
+            Triangle newTriangle = new Triangle(2, length2, 5);
             int result = newTriangle.Side2;
             Assert.AreEqual(length2, result);
         }
@@ -47,10 +48,19 @@ namespace ShapeTracker.Tests
         [TestMethod]
         public void SetSide2_SetsValueOfSide2_Void()
         {
-            Triangle newTriangle = new Triangle(3, 5);
+            Triangle newTriangle = new Triangle(3, 5, 7);
             int newLength2 = 10;
             newTriangle.Side2 = newLength2;
             Assert.AreEqual(newLength2, newTriangle.Side2);
+        }
+
+        [TestMethod]
+        public void GetSide3_ReturnsSide3_Int()
+        {
+            int length3 = 15;
+            Triangle newTriangle = new Triangle(2, 5, length3);
+            int result = newTriangle.GetSide3();
+            Assert.AreEqual(length3, result);
         }
     }
 }
